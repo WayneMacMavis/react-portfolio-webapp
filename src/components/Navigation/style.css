@@ -170,6 +170,9 @@ padding: 10px;
     background-color: #003b57d8;
   }
 } 
+.menu-icon .menu-line {
+  background-color: #fff;
+}
 
 /* .navbar {
   position: fixed;
