@@ -38,6 +38,7 @@ nav {
 } 
 
 .menu.active {
+  padding-top: 400px;
   max-height: 20vh;
   opacity: 1;
 }
@@ -141,8 +142,9 @@ padding: 10px;
   }
 
   .menu.active {
-    max-height: none;
-    height: 100vh;
+    padding-top: 0px;
+    max-height: 20vh;
+    opacity: 1;
   }
 
   .menu-icon {
