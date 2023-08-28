@@ -2,20 +2,21 @@
 .about-page {
     padding: 80px 0;
     position: absolute;
-    top: 90vh;
+    top: 87vh;
     background-color: #89c1d1;
     height: 80vh;
     width: 100vw;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 61%, 0% 100%);
-    clip-path: polygon(0 0, 100% 3%, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 100%);
+    clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
   }
   
   .about-content {
-    max-width: 700px;
+    max-width: 800px;
     max-height: 800px;
     /* margin: 100px auto; */
     text-align: center;
     position: relative;
+    top: 80px;
     right: 50px;
     z-index: 1;
     float: right;
@@ -23,9 +24,10 @@
 
   .responsive {
     position: relative;
-    width: 35%;
+    width: 30%;
     height: auto;
-    left: 0;
+    top: 100px;
+    left: 160px;
   }
   
   .about-content h1 {
@@ -41,11 +43,57 @@
     padding-right: 10%;
   }
 
+  @media only screen and (max-width: 1200px) {
+    .about-page {
+      height: 180vh;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 100%);
+      clip-path: polygon(0 0, 100% 2%, 100% 100%, 0% 100%);
+    }
+    .responsive {
+      position: relative;
+      width: 20%;
+      height: auto;
+      top: 50px;
+      left: 60px;
+    }
+    .about-content {
+      max-width: 500px;
+      max-height: 800px;
+      /* margin: 100px auto; */
+      text-align: center;
+      position: relative;
+      top: 80px;
+      right: 0px;
+      z-index: 1;
+      float: right;
+    }
+    .about-content h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .about-content p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+  }
+
   @media only screen and (max-width: 600px) {
+    .about-page {
+      height: 180vh;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 100%);
+      clip-path: polygon(0 0, 100% 2%, 100% 100%, 0% 100%);
+    }
+    .responsive {
+      position: relative;
+      width: 70%;
+      height: auto;
+      top: 50px;
+      left: 60px;
+    }
     .about-content {
       right: auto;
       align-items: center;
       text-align: center;
-      background-color: lightblue;
+      font-size: 2px;
     }
   }

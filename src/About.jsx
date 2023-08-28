@@ -23,6 +23,18 @@ const AboutPage = () => {
           finibus, neque libero congue quam, in rutrum lorem arcu at justo. Nullam sed elit eu
           sapien aliquet dignissim in nec odio.
         </p>
+        <p>
+          Vestibulum non interdum felis. Nulla facilisi. In nec dui in purus elementum pharetra ut
+          a justo. Nulla facilisi. Nullam at sagittis orci. Praesent iaculis, metus et rhoncus
+          finibus, neque libero congue quam, in rutrum lorem arcu at justo. Nullam sed elit eu
+          sapien aliquet dignissim in nec odio.
+        </p>
+        <p>
+          Vestibulum non interdum felis. Nulla facilisi. In nec dui in purus elementum pharetra ut
+          a justo. Nulla facilisi. Nullam at sagittis orci. Praesent iaculis, metus et rhoncus
+          finibus, neque libero congue quam, in rutrum lorem arcu at justo. Nullam sed elit eu
+          sapien aliquet dignissim in nec odio.
+        </p>
       </div>
       </div>
     </div>
