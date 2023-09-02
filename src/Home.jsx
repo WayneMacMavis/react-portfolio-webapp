@@ -9,10 +9,10 @@ const HomeVid = () => {
 
         <div id='home' className="home-page">
           <div className='text'>
-        <h1>Welcome to My Webpage</h1>
-        <p>
-          This is my portfolio website, Where you can view my skills, portfolio and contact information.
-        </p>
+        <h1>Hello, I'm <div className='name-color'>Wayne Mac Mavis</div></h1>
+        <h2>
+          Frontend Web Developer
+        </h2>
         </div>
         <video className='gin-bg' width={1200} height={800} autoPlay loop muted>
           <source src={Video} type="video/mp4" />

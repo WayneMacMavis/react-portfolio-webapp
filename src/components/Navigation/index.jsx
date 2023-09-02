@@ -60,9 +60,9 @@ const handleMenuClick = () => {
         </ul>
       </div>
       <div  className={`menu-icon ${isMenuOpen ? 'open' : ''}`} onClick={handleMenuClick}>
-        <div style={{background: "white"}} className="menu-line" />
-        <div style={{background: "white"}} className="menu-line" />
-        <div style={{background: "white"}} className="menu-line" />
+        <div  className="menu-line" />
+        <div  className="menu-line" />
+        <div className="menu-line" />
       </div>
     </nav>
 

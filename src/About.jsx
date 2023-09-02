@@ -9,32 +9,14 @@ const AboutPage = () => {
       <div className='container'>
       <img src={Img} alt="Img" class="responsive" />
       <div className="about-content">
-        <h1>About Me</h1>
+        <h1>A Little About Me</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit velit vitae nibh
-          venenatis, at luctus orci ultrices. Nulla facilisi. Curabitur id elit eget velit rhoncus
-          scelerisque vel eu est. Sed gravida volutpat pharetra. Vivamus fringilla ac massa non
-          facilisis. In dapibus sem quam, nec sodales mi egestas vel. Curabitur dignissim ligula nec
-          risus tincidunt consequat.
+        Greetings! I'm Wayne, a budding web developer with a deep passion for creating captivating online experiences. My journey in web development has been driven by an insatiable curiosity and a relentless desire to learn and grow in this dynamic field.
         </p>
-        <p>
-          Vestibulum non interdum felis. Nulla facilisi. In nec dui in purus elementum pharetra ut
-          a justo. Nulla facilisi. Nullam at sagittis orci. Praesent iaculis, metus et rhoncus
-          finibus, neque libero congue quam, in rutrum lorem arcu at justo. Nullam sed elit eu
-          sapien aliquet dignissim in nec odio.
-        </p>
-        <p>
-          Vestibulum non interdum felis. Nulla facilisi. In nec dui in purus elementum pharetra ut
-          a justo. Nulla facilisi. Nullam at sagittis orci. Praesent iaculis, metus et rhoncus
-          finibus, neque libero congue quam, in rutrum lorem arcu at justo. Nullam sed elit eu
-          sapien aliquet dignissim in nec odio.
-        </p>
-        <p>
-          Vestibulum non interdum felis. Nulla facilisi. In nec dui in purus elementum pharetra ut
-          a justo. Nulla facilisi. Nullam at sagittis orci. Praesent iaculis, metus et rhoncus
-          finibus, neque libero congue quam, in rutrum lorem arcu at justo. Nullam sed elit eu
-          sapien aliquet dignissim in nec odio.
-        </p>
+        <h1>Why Web Development?</h1>
+        <p>My fascination with web development stems from the ability to transform lines of code into functional, visually appealing websites that make a difference. It's not just about programming; it's about solving real-world problems and enhancing the digital landscape.</p>
+      <h1>My Motivation</h1>
+      <p>What motivates me as a web developer is the opportunity to contribute to the ever-evolving digital world. I thrive on challenges and believe in the power of technology to shape the future. I am eager to be part of a team where I can leverage my skills to create remarkable online solutions.</p>
       </div>
       </div>
     </div>

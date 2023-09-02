@@ -6,7 +6,7 @@
 
 nav {
   position: fixed;
-  width: 99vw;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -47,7 +47,7 @@ ul {
   list-style: none;
   padding: 0;
   margin-top: -200px;
-  margin-right: 0px;
+  margin-right: 20px;
   display: flex;
 }
 
@@ -58,21 +58,25 @@ li a {
   color: #fff;
   font-size: 1.4rem;
   transition: color 0.3s ease;
+  transition: border color 0.3s ease;
+  border-bottom: transparent;
+  font-weight: 400;
+  padding: 2px; 
   z-index: 10;
 }
 
 a .active {
-  background-color: red !important;
+  color: red !important;
 }
 
 li a:hover {
   color: #1fffe1;
-  text-decoration: underline;
+  border-bottom: 2.5px solid #1fffe1;
 }
 
 .menu ul {
   display: flex;
-  margin-right: 5px;
+  margin-right: 20px;
   flex-direction: column;
   list-style: none;
   opacity: 0;
@@ -87,7 +91,7 @@ li a:hover {
 }
 
 .menu li {
-  padding: 15px;
+  padding: 10px;
   z-index: 10;
 }
 
@@ -106,7 +110,7 @@ padding: 10px;
 .menu-icon .menu-line {
   height: 3.2px;
   width: 35px;
-  background-color: #fff;
+  background-color: white !important;
   margin: 5px 0;
   transition: transform 0.3s;
   z-index: 10;
@@ -181,8 +185,20 @@ padding: 10px;
     background-color: #003b57d8;
   }
 
-.menu-icon .menu-line {
-  background-color: #fff;
+.menu-line {
+  background: red !important;
+}
+
+ul {
+  margin-top: -170px;
+}
+
+.menu li {
+  padding: 15px;
+}
+
+li a {
+  font-size: 2rem;
 }
 
 .logo {
