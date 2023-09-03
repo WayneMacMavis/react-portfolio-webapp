@@ -23,7 +23,7 @@
   } */
 
 .gin-bg {
-    position: absolute;
+    position: fixed;
     width: 100vw;
      height: 94vh;
      top: 0;
@@ -37,13 +37,13 @@
    }
 
    .text {
-    position: relative;
+    position: fixed;
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
    min-height: 90vh;
-   bottom: 0px;
+   bottom: 100px;
    height: 70%;
    width: 100%;
    color: #ffffff;
