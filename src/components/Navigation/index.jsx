@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Logo from '../../assets/images/logo.png';
 import Scrollspy from 'react-scrollspy';
+import VisibilitySensor from 'react-visibility-sensor';
 import './style.css'
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setVisibility] = useState(false);
 
  
 
@@ -29,6 +31,10 @@ const handleMenuClick = () => {
     };
   }, []);
 
+  const onChange = visiblity => {
+    setVisibility(visiblity);
+  };
+
   return (
     <nav className={isScrolled ? 'scrolled' : ''}>
       {/* <div class="navbar__logo"> */}
@@ -40,21 +46,66 @@ const handleMenuClick = () => {
         <Scrollspy
         items={ ['home', 'about',] }
         currentClassName="active" >
-          <li>
+          <VisibilitySensor 
+      offset={{ top: 0 }}
+      onChange={onChange}>
+          <li style={{
+          transition: `opacity ${1}s ease, transform ${1}s ease`,
+          transitionDelay: `${0.5}s`,
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? `translateY(${0}px)` : `translateY(${-8.5}px)`,
+        }}>
           <a href='#home'>Home</a>
           </li>
-          <li>
-          <a href="#about">About</a>
+          </VisibilitySensor>
+          <VisibilitySensor 
+      offset={{ top: 0 }}
+      onChange={onChange}>
+          <li style={{
+          transition: `opacity ${1}s ease, transform ${1}s ease`,
+          transitionDelay: `${1}s`,
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? `translateY(${0}px)` : `translateY(${-8.5}px)`,
+        }}>
+          <a href="#about" >About</a>
           </li>
-          <li>
+          </VisibilitySensor>
+          <VisibilitySensor 
+      offset={{ top: 0 }}
+      onChange={onChange}>
+          <li style={{
+          transition: `opacity ${1}s ease, transform ${1}s ease`,
+          transitionDelay: `${1.5}s`,
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? `translateY(${0}px)` : `translateY(${-8.5}px)`,
+        }}>
           <a href="#skills">Skills</a>
           </li>
-          <li>
-          <a href="#portfolio">Portfolio</a>
+          </VisibilitySensor>
+          <VisibilitySensor 
+      offset={{ top: 0 }}
+      onChange={onChange}>
+          <li style={{
+          transition: `opacity ${1}s ease, transform ${1}s ease`,
+          transitionDelay: `${2}s`,
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? `translateY(${0}px)` : `translateY(${-8.5}px)`,
+        }}>
+          <a href="#projects">Projects</a>
           </li>
-          <li>
+          </VisibilitySensor>
+          <VisibilitySensor 
+      offset={{ top: 0 }}
+      onChange={onChange}>
+          <li style={{
+          transition: `opacity ${1}s ease, transform ${1}s ease`,
+          transitionDelay: `${2.5}s`,
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? `translateY(${0}px)` : `translateY(${-8.5}px)`,
+        }}>
           <a href="#contact">Contact</a>
           </li>
+          </VisibilitySensor>
           {/* Add more navigation items here */}
           </Scrollspy>
         </ul>
