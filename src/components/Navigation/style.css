@@ -26,7 +26,6 @@ nav {
 .menu {
   display: flex;
   top: -40%;
-  height: 0vh;
   max-height: 0;
   justify-content: center;
   align-items: center;
