@@ -1,39 +1,27 @@
-/* .home-page {
-    padding: 22vh 0;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+.home-page {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  margin-bottom: 100px;
+  background-color: #ff0000; /* Add your background color */
+  text-align: center;
+  padding: 0;
+  /* clip-path: polygon(0% 0%,100% 0%,108% 71%,0% 100%); */
   
-  .home-page h1 {
-    font-size: 7.5vh;
-    margin-bottom: 8vh;
-    color: white;
   }
-  
-  .home-page p {
-    font-size: 4vh;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    padding: 0px 2vh 0px 2vh;
-    color: white;
-  }
-  
-  .home-content a {
-    color: #007bff;
-  } */
 
 .gin-bg {
-    position: fixed;
-    width: 100vw;
-     height: 94vh;
+  position: fixed;
+    width: 100%;
+     height: 100%;
+     margin: 0;
      top: 0;
      left: 0;
      right: 0;
      bottom: 0;
      object-fit: fill;
-     z-index: -2;
-     -webkit-clip-path: polygon(0 0, 100% 0, 100% 97.2%, 0 calc(100% - 50px));
-     clip-path: polygon(0 0, 100% 0, 100% 97.2%, 0 calc(100% - 50px));
+
    }
 
    .text {
@@ -42,22 +30,22 @@
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   min-height: 90vh;
-   bottom: 100px;
+   min-height: 2vh;
+   bottom: 12%;
    height: 70%;
    width: 100%;
    color: #ffffff;
    text-align: center;
+   z-index: 1;
    }
    .text h1 {
-    display: flex;
-     font-size: 3.9rem;
-     margin-bottom: 20px;
+     font-size: 5rem;
+     margin-bottom: 2px;
      font-weight: 400;
      flex-direction: row;
    }
   .text h2 {
-    font-size: 3.3rem;
+    font-size: 4.2rem;
     font-weight: 400;
   }
 
@@ -66,24 +54,37 @@
   }
 
   @media only screen and (max-width: 600px) {
+    h2 {
+      transition: none;
+      transform: none;
+    }
+    .text {
+     bottom: 30px;
+     }
     .text h1 {
-      font-size: 3.2rem;
+      font-size: 2.5rem;
       flex-direction: column;
       margin-bottom: 0px;
+      padding-bottom: 12px;
+      transition: none;
+      transform: none;
+      opacity: 1;
      }
      .text h2 {
       margin-top: 10px;
-      font-size: 3rem;
+      font-size: 2.2rem;
+      transition: none;
+      transform: none;
+      opacity: 1;
+    }
+
+  }
+   @media screen and (max-width: 900px) {
+    .text h1 {
+      font-size: 2.9rem;
+     }
+     .text h2 {
+      font-size: 2.4rem;
+      margin-top: 10px;
     }
   }
-   /* @media screen and (max-width: 900px) {
-    .home-page {
-      padding: 200px 0;
-    }
-    .home-page h1 {
-      font-size: 2rem;
-    }
-    .home-page p {
-      font-size: 1.2rem;
-    }
-  } */

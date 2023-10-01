@@ -15,7 +15,7 @@ nav {
   transition: none;
     color: var(--text-color);
   padding: 8px 12px;
-  z-index: 1;
+  z-index: 50 !important;
 }
 
 .logo {
@@ -26,7 +26,7 @@ nav {
 .menu {
   display: flex;
   top: -40%;
-  height: 60vh;
+  height: 0vh;
   max-height: 0;
   justify-content: center;
   align-items: center;
@@ -38,8 +38,8 @@ nav {
 } 
 
 .menu.active {
-  padding-top: 400px;
-  max-height: 20vh;
+  padding-top: 500px;
+  max-height: 60vh;
   opacity: 1;
 }
 
@@ -98,10 +98,10 @@ li a:hover {
 
 .menu-icon {
   position: relative;
-  top: 10px;
-  right: 30px;
+  top: 12px;
+  right: 50px;
   display: flex;
-padding: 10px;
+/* padding: 10px; */
   flex-direction: column;
   cursor: pointer;
   z-index: 10;
@@ -128,6 +128,37 @@ padding: 10px;
   transform: rotate(45deg) translate(-11px, -6px);
 }
 
+/* Default animation (runs on larger screens) */
+.animation-running {
+  animation-name: yourAnimation;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* Paused animation (applies to smaller screens) */
+.animation-paused {
+  animation-play-state: paused;
+}
+
+/* Define your animation */
+@keyframes yourAnimation {
+  0% {
+    /* Initial state */
+  }
+  100% {
+    /* Final state */
+  }
+}
+
+/* Apply the animation to the element */
+.animation {
+  animation-name: yourAnimation;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
 @media screen and (min-width: 769px) {
   nav {
     height: 50px;
@@ -147,7 +178,7 @@ padding: 10px;
 
   .menu.active {
     padding-top: 0px;
-    max-height: 20vh;
+    max-height: 40vh;
     opacity: 1;
   }
 
@@ -180,6 +211,7 @@ padding: 10px;
   }
 }
 
+
 @media screen and (max-width: 769px) {
   nav {
     background-color: #003b57d8;
@@ -190,11 +222,11 @@ padding: 10px;
 }
 
 ul {
-  margin-top: -170px;
+  margin-top: -270px;
 }
 
 .menu li {
-  padding: 15px;
+  padding: 10px;
 }
 
 li a {
@@ -204,8 +236,15 @@ li a {
 .logo {
   margin-top: 5px;
   margin-left: -8px;
-  width: 20%;
+  width: 65px;
 }
+  /* Apply the 'animation-paused' class to pause the animation on smaller screens */
+  .animation-running {
+    animation-play-state: paused; /* Ensure it's paused by default on small screens */
+  }
+  .animation-paused {
+    animation-play-state: paused;
+  }
 }
 
 

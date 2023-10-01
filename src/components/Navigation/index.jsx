@@ -9,7 +9,25 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setVisibility] = useState(false);
 
- 
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  useEffect(() => {
+    // Check if the screen width is <= 768px (adjust the value as needed)
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 768);
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
 const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -49,7 +67,7 @@ const handleMenuClick = () => {
           <VisibilitySensor 
       offset={{ top: 0 }}
       onChange={onChange}>
-          <li style={{
+          <li className={`animation ${isMobileView ? 'animation-paused' : ''}`} style={{
           transition: `opacity ${1}s ease, transform ${1}s ease`,
           transitionDelay: `${0.5}s`,
           opacity: isVisible ? 1 : 0,

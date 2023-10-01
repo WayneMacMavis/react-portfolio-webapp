@@ -48,7 +48,7 @@ const HomeVid = ({ children }) => {
         </h2>
         </VisibilitySensor>
         </div>
-        <video className='gin-bg' width={1200} height={800} autoPlay loop muted>
+        <video className='gin-bg' width={'auto'} height={'auto'} autoPlay loop muted>
           <source src={Video} type="video/mp4" />
           </video>
       </div>
