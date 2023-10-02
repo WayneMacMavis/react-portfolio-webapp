@@ -62,7 +62,7 @@
      bottom: 30px;
      }
     .text h1 {
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       flex-direction: column;
       margin-bottom: 0px;
       padding-bottom: 12px;
@@ -72,7 +72,7 @@
      }
      .text h2 {
       margin-top: 10px;
-      font-size: 2.2rem;
+      font-size: 2rem;
       transition: none;
       transform: none;
       opacity: 1;
