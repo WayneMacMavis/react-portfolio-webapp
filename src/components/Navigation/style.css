@@ -7,7 +7,6 @@
 nav {
   position: fixed;
   width: 100%;
-  max-width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -161,6 +160,7 @@ li a:hover {
 
 @media screen and (min-width: 769px) {
   nav {
+    width: 100%;
     height: 50px;
     transition: background-color 0.3s ease;
     z-index: 10;
@@ -214,6 +214,7 @@ li a:hover {
 
 @media screen and (max-width: 769px) {
   nav {
+    width: 100%;
     background-color: #003b57d8;
   }
 
