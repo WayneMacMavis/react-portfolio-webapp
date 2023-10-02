@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       <Navigation />
         
-        <HomePage />
-         <AboutPage />
+        {/* <HomePage /> */}
+         {/* <AboutPage /> */}
      
     </div>
  
