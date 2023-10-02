@@ -142,6 +142,7 @@
   .about-container {
     background-color: #096d8b;
     position: relative;
+    width: 100vw;
     height: auto;
     flex-direction: column;
     justify-content: space-between;
