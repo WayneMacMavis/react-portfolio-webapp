@@ -192,6 +192,7 @@
 
   @media (max-width: 768px) {
     .about-container {
+      width: 100vw;
       margin-top: 0px;
     clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100%);
 
