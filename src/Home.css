@@ -53,7 +53,7 @@
     color: rgb(229, 241, 158);
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     h2 {
       transition: none;
       transform: none;
@@ -62,7 +62,7 @@
      bottom: 30px;
      }
     .text h1 {
-      font-size: 2rem;
+      font-size: 1rem;
       flex-direction: column;
       margin-bottom: 0px;
       padding-bottom: 12px;
