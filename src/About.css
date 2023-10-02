@@ -164,7 +164,6 @@
   .about-content {
     display: flex; /* Display children in a row */
     flex-direction: row;
-    width: 90vw;
     align-items: center; /* Vertically center-align children */
     justify-content: space-between; /* Center horizontally */
     align-items: center; /* Center vertically (optional) */
@@ -192,7 +191,6 @@
 
   @media (max-width: 768px) {
     .about-container {
-      width: 80vw;
       margin-top: 0px;
     clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100%);
 
