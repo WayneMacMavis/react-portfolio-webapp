@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import { FaHtml5, FaCss3, FaReact, FaJs, FaPhp } from 'react-icons/fa';

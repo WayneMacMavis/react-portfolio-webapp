@@ -10,23 +10,23 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setVisibility] = useState(false);
 
-  const [isMobileView, setIsMobileView] = useState(false);
+  // const [isMobileView, setIsMobileView] = useState(false);
 
   useEffect(() => {
     // Check if the screen width is <= 768px (adjust the value as needed)
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth <= 768);
-    };
+    // const handleResize = () => {
+    //   setIsMobileView(window.innerWidth <= 768);
+    // };
 
     // Initial check on component mount
-    handleResize();
+    // handleResize();
 
     // Listen for window resize events
-    window.addEventListener('resize', handleResize);
+    // window.addEventListener('resize', handleResize);
 
     // Clean up the event listener on component unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
+      // window.removeEventListener('resize', handleResize);
     };
   }, []);
 
