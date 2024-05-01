@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Logo from '../../assets/images/logo.png';
 import Scrollspy from 'react-scrollspy';
+import { animated, Spring } from '@react-spring/web'
 import VisibilitySensor from 'react-visibility-sensor';
 import './style.css'
 
@@ -64,24 +65,25 @@ const handleMenuClick = () => {
         <Scrollspy
         items={ ['home', 'about',] }
         currentClassName="active" >
-          <VisibilitySensor 
-      offset={{ top: 0 }}
-      onChange={onChange}>
-          <li className={`animation ${isMobileView ? 'animation-paused' : ''}`} style={{
-          transition: `opacity ${1}s ease, transform ${1}s ease`,
-          transitionDelay: `${0.5}s`,
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? `translateY(${0}px)` : `translateY(${-8.5}px)`,
-        }}>
-          <a href='#home'>Home</a>
+          <VisibilitySensor>
+          {({ isVisible }) => (
+          <li>
+      
+          <Spring config={{duration: 500}} delay={500} to={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(-50px)"
+              }}>
+         {style => <animated.a href='#home' style={{ ...style, display: "block", animationPlayState: "paused" }}>Home</animated.a>}
+       </Spring>
           </li>
+          )}
           </VisibilitySensor>
           <VisibilitySensor 
       offset={{ top: 0 }}
       onChange={onChange}>
           <li style={{
           transition: `opacity ${1}s ease, transform ${1}s ease`,
-          transitionDelay: `${1}s`,
+          transitionDelay: `${0.6}s`,
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? `translateY(${0}px)` : `translateY(${-8.5}px)`,
         }}>
@@ -93,7 +95,7 @@ const handleMenuClick = () => {
       onChange={onChange}>
           <li style={{
           transition: `opacity ${1}s ease, transform ${1}s ease`,
-          transitionDelay: `${1.5}s`,
+          transitionDelay: `${1}s`,
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? `translateY(${0}px)` : `translateY(${-8.5}px)`,
         }}>
@@ -105,7 +107,7 @@ const handleMenuClick = () => {
       onChange={onChange}>
           <li style={{
           transition: `opacity ${1}s ease, transform ${1}s ease`,
-          transitionDelay: `${2}s`,
+          transitionDelay: `${1.4}s`,
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? `translateY(${0}px)` : `translateY(${-8.5}px)`,
         }}>
@@ -117,7 +119,7 @@ const handleMenuClick = () => {
       onChange={onChange}>
           <li style={{
           transition: `opacity ${1}s ease, transform ${1}s ease`,
-          transitionDelay: `${2.5}s`,
+          transitionDelay: `${1.8}s`,
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? `translateY(${0}px)` : `translateY(${-8.5}px)`,
         }}>

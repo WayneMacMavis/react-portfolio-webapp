@@ -147,7 +147,7 @@
     justify-content: space-between;
     margin-top: 0px;
     text-align: center;
-    padding: 40px;
+    padding: 10vw;
     clip-path: polygon(0% 22%,100% 0%,100% 100%,0% 100%);
     /* -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
     clip-path: polygon(0% 100%, 100% calc(100% - 5vw), 100% 100%, 0 100%); */
@@ -175,7 +175,7 @@
   
   .about-image img {
     max-width: 500px;
-    margin-left: 8vw;
+    /* margin-left: 8vw; */
     margin-top: 150px;
     box-shadow: 5px 5px 18px black;
     border-radius: 15px;
