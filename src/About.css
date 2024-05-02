@@ -140,14 +140,14 @@
 
 
   .about-container {
-    background-color: #096d8b;
+    background: linear-gradient(to bottom, #044a5f, #055f7a);
     position: relative;
     height: auto;
     flex-direction: column;
     justify-content: space-between;
     margin-top: 0px;
     text-align: center;
-    padding: 10vw;
+    padding: 8vw;
     clip-path: polygon(0% 22%,100% 0%,100% 100%,0% 100%);
     /* -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
     clip-path: polygon(0% 100%, 100% calc(100% - 5vw), 100% 100%, 0 100%); */

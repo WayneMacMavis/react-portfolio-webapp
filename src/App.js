@@ -7,6 +7,7 @@ import Skills from './Skills';
 import { v4 as uuidv4 } from "uuid";
 import Card from "./Carousel-Card";
 import Carousel from "./Carousel";
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
   return (
 
     <div className="App">
+      <ScrollToTop />
       <Navigation />
         
          <HomePage />

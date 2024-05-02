@@ -14,8 +14,8 @@ const SkillsPage = () => {
   ];
 
   return (
-    <div className="skills-page">
-      <h2>Skills</h2>
+    <div id='skills' className="skills-page">
+      <h2 className='skills-title'>Skills</h2>
       <div className="skills-list">
         {skills.map((skill, index) => (
           <SkillItem key={index} skill={skill} />

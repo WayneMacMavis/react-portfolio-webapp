@@ -1,18 +1,20 @@
 .skills-page {
-    background-color: #096d8b;
+  background: linear-gradient(to bottom, #055f7a, #05799c);
     position: relative;
     height: auto;
     flex-direction: column;
     justify-content: space-between;
     margin-top: 0px;
     text-align: center;
-    padding: 10vw;
+    padding: 7vw;
     /* -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
     clip-path: polygon(0% 100%, 100% calc(100% - 5vw), 100% 100%, 0 100%); */
-    z-index: 1000000;
+    z-index: 10;
   }
 
-
+.skills-title {
+  font-size: 40px;
+}
 
   .skills-list {
     margin-top: 20px;
@@ -58,5 +60,5 @@
   .progress-bar {
     height: 100%;
     border-radius: 5px;
-    background-color: #4caf50;
+    background: linear-gradient(to right, #1605ffcb, #b9b9b9f6);
   }

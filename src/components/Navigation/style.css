@@ -57,8 +57,8 @@ li a {
   color: #fff;
   font-size: 1.4rem;
   transition: color 0.3s ease;
-  transition: border color 0.3s ease;
-  border-bottom: transparent;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s ease;
   font-weight: 400;
   padding: 2px; 
   z-index: 10;
@@ -70,7 +70,7 @@ a .active {
 
 li a:hover {
   color: #1fffe1;
-  border-bottom: 2.5px solid #1fffe1;
+  border-bottom: 2.2px solid #1fffe1;
 }
 
 .menu ul {

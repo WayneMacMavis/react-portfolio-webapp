@@ -24,7 +24,7 @@ const getIcon = (name) => {
 const SkillItem = ({ skill }) => {
   const { name, level } = skill;
   const [ref, inView] = useInView({ triggerOnce: true });
-  const [animatedProps, set] = useSpring(() => ({ width: '0%', config: { duration: 1000 } }));
+  const [animatedProps, set] = useSpring(() => ({ width: '0%', config: { duration: 1300, } }));
 
   if (inView) {
     set({ width: `${level}%` });
