@@ -40,12 +40,12 @@
    }
    .text h1 {
      font-size: 5rem;
-     margin-bottom: 2px;
+     margin-bottom: 0px;
      font-weight: 400;
      flex-direction: row;
    }
   .text h2 {
-    font-size: 4.2rem;
+    font-size: 4.9rem;
     font-weight: 400;
   }
 

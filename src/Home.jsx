@@ -44,7 +44,7 @@ const HomeVid = ({ children }) => {
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? `translateY(${0}px)` : `translateX(${100}px)`,
         }}>
-          Frontend Web Developer
+          Web Developer
         </h2>
         </VisibilitySensor>
         </div>
