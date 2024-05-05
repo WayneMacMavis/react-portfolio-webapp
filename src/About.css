@@ -157,7 +157,8 @@
   .about-header {
     position: relative;
     height: 90px;
-    font-size: 21px;
+    font-size: 26px;
+    color: white;
   }
 
   .about-content {

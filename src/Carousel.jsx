@@ -23,6 +23,7 @@ export default function Carroussel(props) {
     <div className="container"
       style={{ width: props.width, height: props.height, margin: props.margin }}
     >
+      
       <Carousel
         slides={cards}
         goToSlide={goToSlide}

@@ -10,7 +10,13 @@
     padding: 0 1.5rem 1.5rem 1.5rem;
     border-radius: 10px;
     margin-left: 20px;
+    opacity: 0; /* Initially hide the card */
+  transition: opacity 1s ease;
     z-index: 100000000;
+  }
+
+  .card.visible {
+    opacity: 1; /* Show the card when it's visible */
   }
   
   .card img {
