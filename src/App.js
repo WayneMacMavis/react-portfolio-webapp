@@ -9,6 +9,7 @@ import Card from "./Carousel-Card";
 import Carousel from "./Carousel";
 import Footer from "./Footer"
 import ScrollToTop from './components/ScrollToTop';
+import FormComponent from './FormComponent';
 import './App.css';
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
         offset={2}
         showArrows={false}
       />
+      <FormComponent />
      <Footer />
     </div>
  

@@ -4,7 +4,7 @@
   margin: 0;
   top: 0;
   margin-bottom: 100px;
-  background-color: #ff0000; /* Add your background color */
+  background-color: #ffffff; /* Add your background color */
   text-align: center;
   padding: 0;
   /* clip-path: polygon(0% 0%,100% 0%,108% 71%,0% 100%); */
@@ -21,6 +21,7 @@
      right: 0;
      bottom: 0;
      object-fit: fill;
+     filter: brightness(1.1); /* Adjust the value to increase brightness */
 
    }
 

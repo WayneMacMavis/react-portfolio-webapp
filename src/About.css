@@ -168,7 +168,7 @@
     align-items: center; /* Vertically center-align children */
     justify-content: space-between; /* Center horizontally */
     align-items: center; /* Center vertically (optional) */
-    padding-top: 50px;
+    padding-top: 0px;
     z-index: 15;
     
   }

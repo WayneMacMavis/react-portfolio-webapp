@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Home.css';
 import VisibilitySensor from 'react-visibility-sensor';
 import Video from './assets/videos/home-bg.mp4';
+import Placeholder from './assets/images/placeholder.jpg';
 
 const HomeVid = ({ children }) => {
   const [isVisible, setVisibility] = useState(false);
@@ -47,7 +48,7 @@ const HomeVid = ({ children }) => {
           </h2>
         </VisibilitySensor>
       </div>
-      <video className="gin-bg" width="auto" height="auto" autoPlay loop muted>
+      <video className="gin-bg" width="auto" height="auto" autoPlay loop muted poster={Placeholder}>
         <source src={Video} type="video/mp4" />
       </video>
     </div>
