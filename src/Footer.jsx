@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { FiMail, FiTwitter, FiLinkedin, FiGithub, FiFacebook } from 'react-icons/fi';
 import './Footer.css';
 
