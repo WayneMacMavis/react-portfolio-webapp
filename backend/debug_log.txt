@@ -1,0 +1,20 @@
+Script started
+Headers set
+PHPMailer included
+Decoded input: 
+Invalid input
+Script started
+Headers set
+PHPMailer included
+Decoded input: stdClass Object
+(
+    [name] => Wayne Mac Mavis
+    [email] => w.macmavis83@gmail.com
+    [message] => gfgfgfgfg
+)
+
+SMTP_USER: w.macmavis83@gmail.com
+SMTP_PASS: jukefxuwhrhemqtw
+SMTP configured
+Mail content set
+Mail sent successfully
