@@ -8,7 +8,6 @@ if (!file_exists($autoloadPath)) {
 require $autoloadPath;
 
 // Use statements for clarity
-use Dotenv\Dotenv;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
