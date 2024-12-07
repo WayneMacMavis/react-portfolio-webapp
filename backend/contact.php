@@ -7,13 +7,33 @@ if (!file_exists($autoloadPath)) {
 }
 require $autoloadPath;
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+function loadEnv() {
+    $envFile = __DIR__ . '/.env';
+    
+    if (file_exists($envFile)) {
+        $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            if (strpos($line, '#') === 0) continue; // Ignore comments
+            list($key, $value) = explode('=', $line, 2);
+            putenv(trim($key) . '=' . trim($value));
+            $_ENV[trim($key)] = trim($value);
+        }
+    } else {
+        die('Environment file (.env) not found.');
+    }
+}
+
+loadEnv();  // Load environment variables
+
+$smtpUser = $_ENV['SMTP_USER'];
+$smtpPass = $_ENV['SMTP_PASS'];
+
 // Use statements for clarity
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-// Load environment variables
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
 
 // Debugging: log the start of the script
 $debugLogFile = __DIR__ . '/debug_log.txt';
@@ -40,6 +60,9 @@ file_put_contents('debug_log.txt', "Decoded input: " . print_r($data, true) . "\
 // Validate the input
 if ($data && isset($data->name, $data->email, $data->message)) {
     $mail = new PHPMailer();
+
+    file_put_contents('debug_log.txt', "SMTP_USER: " . getenv('SMTP_USER') . "\n", FILE_APPEND);
+    file_put_contents('debug_log.txt', "SMTP_PASS: " . getenv('SMTP_PASS') . "\n", FILE_APPEND);
 
     // SMTP Configuration
     $mail->isSMTP();
