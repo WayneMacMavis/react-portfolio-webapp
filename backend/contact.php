@@ -1,107 +1,70 @@
 <?php
 
-// Autoload dependencies
-$autoloadPath = __DIR__ . '/vendor/autoload.php';
-if (!file_exists($autoloadPath)) {
-    die('Autoload file not found. Did you run composer install?');
-}
-require $autoloadPath;
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-function loadEnv() {
-    $envFile = __DIR__ . '/.env';
-    
-    if (file_exists($envFile)) {
-        $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($lines as $line) {
-            if (strpos($line, '#') === 0) continue; // Ignore comments
-            list($key, $value) = explode('=', $line, 2);
-            putenv(trim($key) . '=' . trim($value));
-            $_ENV[trim($key)] = trim($value);
-        }
-    } else {
-        die('Environment file (.env) not found.');
+// Check if .env exists and load manually
+$envPath = __DIR__ . '/.env';
+if (file_exists($envPath)) {
+    $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos($line, '#') === 0) continue; // Skip comments
+        list($key, $value) = explode('=', $line, 2);
+        $_ENV[trim($key)] = trim($value);
     }
+} else {
+    die('Environment file (.env) not found.');
 }
 
-loadEnv();  // Load environment variables
+// SMTP credentials from .env
+$smtpUser = $_ENV['SMTP_USER'] ?? null;
+$smtpPass = $_ENV['SMTP_PASS'] ?? null;
 
-$smtpUser = $_ENV['SMTP_USER'];
-$smtpPass = $_ENV['SMTP_PASS'];
-
-// Use statements for clarity
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-// Debugging: log the start of the script
-$debugLogFile = __DIR__ . '/debug_log.txt';
-file_put_contents($debugLogFile, "Script started\n", FILE_APPEND);
+if (!$smtpUser || !$smtpPass) {
+    die('SMTP_USER or SMTP_PASS not set in .env');
+}
 
 // CORS headers for React app communication
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
-file_put_contents($debugLogFile, "Headers set\n", FILE_APPEND);
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Include PHPMailer directly (no composer needed)
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require 'PHPMailer/src/Exception.php';
 
-file_put_contents('debug_log.txt', "PHPMailer included\n", FILE_APPEND);
+// Read JSON input
+$data = json_decode(file_get_contents("php://input"), true);
 
-// Get JSON input from the React form
-$data = json_decode(file_get_contents("php://input"));
+// Validate input
+if (isset($data['name'], $data['email'], $data['message'])) {
+    $mail = new PHPMailer(true);
 
-file_put_contents('debug_log.txt', "Decoded input: " . print_r($data, true) . "\n", FILE_APPEND);
+    try {
+        // SMTP configuration
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = $smtpUser;
+        $mail->Password = $smtpPass;
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
 
-// Validate the input
-if ($data && isset($data->name, $data->email, $data->message)) {
-    $mail = new PHPMailer();
+        // Email settings
+        $mail->setFrom($smtpUser, 'Portfolio Contact');
+        $mail->addAddress($smtpUser); // Send to yourself
+        $mail->addReplyTo($data['email'], $data['name']);
+        $mail->Subject = "New Contact Form Message from {$data['name']}";
+        $mail->Body = "Name: {$data['name']}\nEmail: {$data['email']}\nMessage:\n{$data['message']}";
 
-    file_put_contents('debug_log.txt', "SMTP_USER: " . getenv('SMTP_USER') . "\n", FILE_APPEND);
-    file_put_contents('debug_log.txt', "SMTP_PASS: " . getenv('SMTP_PASS') . "\n", FILE_APPEND);
-
-    // SMTP Configuration
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = $_ENV['SMTP_USER']; // Your Gmail address
-    $mail->Password = $_ENV['SMTP_PASS'];   // Replace with your App Password
-    $mail->SMTPSecure = 'tls';               // Use `tls` or `ssl`
-    $mail->Port = 587;                       // Port 587 for TLS or 465 for SSL
-
-    file_put_contents('debug_log.txt', "SMTP configured\n", FILE_APPEND);
-
-    // Email Content
-    $mail->setFrom($_ENV['SMTP_USER'], 'Portfolio-Website'); // Sender
-    $mail->addAddress($_ENV['SMTP_USER']);          // Recipient
-    $mail->Subject = "New Contact Message from " . $data->name;
-    $mail->Body = "Name: " . $data->name . "\nEmail: " . $data->email . "\nMessage: " . $data->message;
-
-   // Set "Reply-To" to the user's email
-   $mail->addReplyTo($data->email, $data->name);
-
-   // Email Content
-   $mail->Subject = "New Contact Message from " . $data->name;
-   $mail->Body = "You have received a new message:\n\n" .
-                 "Name: " . $data->name . "\n" .
-                 "Email: " . $data->email . "\n" .
-                 "Message:\n" . $data->message;
-
-    file_put_contents('debug_log.txt', "Mail content set\n", FILE_APPEND);
-
-    // Send the email and respond
-    if ($mail->send()) {
-        file_put_contents('debug_log.txt', "Mail sent successfully\n", FILE_APPEND);
-        echo json_encode(["success" => true]);
-    } else {
-        file_put_contents('debug_log.txt', "Mail failed: " . $mail->ErrorInfo . "\n", FILE_APPEND);
-        echo json_encode(["success" => false, "error" => $mail->ErrorInfo]);
+        // Send the email
+        $mail->send();
+        echo json_encode(['success' => true]);
+    } catch (Exception $e) {
+        echo json_encode(['success' => false, 'error' => $mail->ErrorInfo]);
     }
 } else {
-    file_put_contents('debug_log.txt', "Invalid input\n", FILE_APPEND);
-    echo json_encode(["success" => false, "error" => "Invalid input."]);
+    echo json_encode(['success' => false, 'error' => 'Invalid input']);
 }
