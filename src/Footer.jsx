@@ -26,7 +26,7 @@ const Footer = () => {
         setButtonText("Sending...");
 
         try {
-            const response = await fetch("http://localhost:8080/my-portfolio/backend/contact.php", {
+            const response = await fetch("http://www.portfolio-backend.freesite.online/backend/contact.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
